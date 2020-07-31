@@ -1,6 +1,6 @@
 {
   "name": "@cybergab/gab-react-coverflow",
-  "version": "0.2.20",
+  "version": "0.2.24",
   "description": "Carousel of coverflow effect",
   "main": "main.js",
   "homepage": "https://github.com/CyberGab/gab-react-coverflow#readme",
@@ -38,7 +38,12 @@
   "author": "CyberGab",
   "license": "MIT",
   "dependencies": {
-    "radium": "^0.25.1"
+    "acorn": "^7.3.1",
+    "eslint-utils": "^2.1.0",
+    "loadash": "^1.0.0",
+    "mixin-deep": "^2.0.1",
+    "radium": "^0.25.1",
+    "websocket-extensions": "^0.1.4"
   },
   "peerDependencies": {
     "prop-types": "^15.6.2",
@@ -84,5 +89,11 @@
     "webpack-cli": "^3.1.1",
     "webpack-dev-server": "^3.1.14",
     "webpack-merge": "^4.2.1"
+  },
+  "bugs": {
+    "url": "https://github.com/CyberGab/gab-react-coverflow/issues"
+  },
+  "directories": {
+    "test": "test"
   }
 }

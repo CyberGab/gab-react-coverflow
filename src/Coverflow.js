@@ -48,7 +48,8 @@ class Coverflow extends Component {
     media: PropTypes.any,
     infiniteScroll: PropTypes.bool,
     width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	onKeyDown: PropTypes.func,
   };
 
   static defaultProps = {
@@ -62,7 +63,8 @@ class Coverflow extends Component {
     media: {},
     infiniteScroll: false,
     width: 'auto',
-    height: 'auto',
+	height: 'auto',
+	onKeyDown: null,
   };
 
   state = {
@@ -202,17 +204,16 @@ class Coverflow extends Component {
   }
 
   _keyDown(e) {
-	console.log("coverflow keyDown")
-
     if (e.keyCode === 37) {
 	  this._handlePrevFigure();
-	  e.preventDefault();
-	  e.stopPropagation();
+//	  e.preventDefault();
+//	  e.stopPropagation();
     } else if (e.keyCode === 39) {
 	  this._handleNextFigure();
-	  e.preventDefault();
-	  e.stopPropagation();
-    }
+//	  e.preventDefault();
+//	  e.stopPropagation();
+	}
+	if(this.props.onKeyDown) this.props.onKeyDown(e,this);
   }
 
   _handleFigureStyle(index, current) {
@@ -234,7 +235,7 @@ class Coverflow extends Component {
       style.transform = `translateX(${this.state.move + offset}px)  scale(${
         this.props.currentFigureScale
       }`;
-      style.zIndex = `${10 - depth}`;
+      style.zIndex = 99; //`${10 - depth}`;
       style.opacity = opacity;
     } else if (index < current) {
       // Left side
